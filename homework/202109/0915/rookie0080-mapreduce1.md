@@ -3,8 +3,11 @@ https://pdos.csail.mit.edu/6.824/papers/mapreduce.pdf
 Jeffrey Dean and Sanjay Ghemawat From Google
 
 ### 0. 摘要
+
 #### MapReduce是什么？
+
 MapReduce是一个用于处理和产生大数据集的编程模型及其实现。
+
 #### MapReduce带来什么好处？
 用户只要按照MapReduce规定的函数风格来编写程序，程序就会自动在一个大规模的集群上并行执行。MapReduce的运行时来管理输入数据的分组、跨机器上的程序的调度、处理机器错误，以及机器之间的通信。简而言之就是为用户封装好了在集群上并行处理大规模数据的能力。
 
@@ -73,7 +76,9 @@ MapReduce的实现取决于要运用于什么环境，共享内存机器、NUMA�
 
 #### 3.1 执行概览
 【图片】
+
 （具体的流程叙述见Paper）
+
 - 每个Map task都会在本地磁盘上将中间结果分为R个部分，让所有的Reduce worker都可以读取
 - 通常用户不需要将最终的output file文件组合在一起，他们经常会直接被另一个mapreduce调用所需要。
   
