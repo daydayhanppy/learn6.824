@@ -9,12 +9,12 @@ members = {
     "SimhaZF": "ZSimha",
     "rookie0080": "rookie0080"
 }
-checklist = list(members.keys())
 
 PUSH_KEY = os.getenv("PUSH_KEY")
 
 
 def check(days_before):
+    checklist = list(members.keys())
     today = datetime.date.today()
     day = today - datetime.timedelta(days=days_before)
 
