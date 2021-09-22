@@ -42,7 +42,7 @@ mapReducer的语义和函数式编程很相似
 同一个map任务可能被完整地执行2次，这会产生相同地在中间数据，但不会影响最后的结果
 同样的，reduce也可能被执行两次【待理解】
 
-coordinator不会faile，理论上可以做容错处理，但是一般不管，坏了就坏了
+coordinator不会fail，理论上可以做容错处理，但是一般不管，坏了就坏了
 
 slow workers怎么办？ 
 
