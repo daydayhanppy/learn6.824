@@ -90,7 +90,9 @@ for i:= 0; i < 10; i++ {
     sum += i;
 }
 fmt.Println(sum)
-指针
+```
+### 指针
+```Go
 var ap *int
 a := 12
 ap = &a
