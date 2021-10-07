@@ -4,7 +4,7 @@ import requests
 
 members = {
     "huangjunqing": "XiaoZhuo_Ops",
-    "yangchh": "yangchh1998",
+    # "yangchh": "yangchh1998",
     "ivan": "zjrenivan",
     "SimhaZF": "ZSimha",
     "rookie0080": "rookie0080"
