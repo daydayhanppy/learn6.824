@@ -2,7 +2,7 @@ name: check
 
 on:
   schedule:
-    - cron: '50 13 * * *'
+    - cron: '58 13 * * *'
 
   #   watch:
   #     types: started
