@@ -21,6 +21,7 @@ https://raw.githubusercontent.com/RiverFerry/picBed/master/Snipaste_2021-02-17_2
                    \             /
                    Virtual Storage 
 ```
+为什么使用共享存储？
 
 ### 确定性重放
 即保证主机和备机通过日志通道发送信息来保持同步
@@ -47,7 +48,7 @@ https://raw.githubusercontent.com/RiverFerry/picBed/master/Snipaste_2021-02-17_2
 主机故障，备机上线
 备机故障，主机不再发送日志
 如何解决脑裂问题
-共享虚拟内存 + 锁
+共享虚拟存储 + 锁
 
 ### go live points
 一个被标记为go-live point的日志项可以用来表示对于重放一个指令或者特别的设备操作必要的一系列日志项中的最后一个日志项
@@ -75,4 +76,5 @@ VMware VMotion可以在最小化中断的代价下将运行的虚拟机从一台
     当主机显式关机的时候，备机也应该关机，而不是尝试上线。
     主机上任何的资源管理改变(比如增加了cpu份额)也应该应用到备机
 ## 磁盘IO问题
+
 
