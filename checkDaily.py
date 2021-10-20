@@ -61,6 +61,6 @@ if __name__ == "__main__":
         atlist = ""
         for lucky in ll:
             atlist = atlist + "@" + lucky + " "
-        ret = "群友 %s连续两天未完成作业，请发随机红包 %s 元共 %s 份!" % (atlist, 2 * len(members), len(members) - 1)
+        ret = "群友 %s连续两天未完成作业，请发随机红包 %s 元共 %s 份!" % (atlist, 2 * len(members), len(members))
         notify("有红包", ret)
         print(ret)
