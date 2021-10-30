@@ -1,0 +1,69 @@
+# 6.824 Lab 2: Raft
+
+https://pdos.csail.mit.edu/6.824/labs/lab-raft.html
+
+## 介绍
+
+*这是您将构建容错键/值存储系统的一系列实验中的第一个。在本实验中，您将实现 Raft，一种复制状态机协议。在下一个实验中，您将在 Raft 之上构建一个键/值服务。然后，您将在多个复制的状态机上“分片”您的服务以获得更高的性能。*
+
+***在本实验中，您将实现 Raft 作为带有关联方法的 Go 对象类型，旨在用作更大服务中的模块。一组 Raft 实例通过 RPC 相互通信以维护复制的日志。您的 Raft 界面将支持无限序列的编号命令，也称为日志条目。条目用索引编号进行编号。具有给定索引的日志条目最终将被提交。此时，您的 Raft 应该将日志条目发送到更大的服务以供其执行。***
+
+raft交互逻辑图
+
+https://pdos.csail.mit.edu/6.824/notes/raft_diagram.pdf
+
+## 开始
+
+```
+$ cd ~/6.824
+$ git pull
+...
+$ cd src/raft
+$ go test -race
+Test (2A): initial election ...
+--- FAIL: TestInitialElection2A (5.04s)
+        config.go:326: expected one leader, got none
+Test (2A): election after network failure ...
+--- FAIL: TestReElection2A (5.03s)
+        config.go:326: expected one leader, got none
+...
+```
+
+## 编码
+
+实现以下接口
+
+```
+// create a new Raft server instance:
+rf := Make(peers, me, persister, applyCh)
+
+// start agreement on a new log entry:
+rf.Start(command interface{}) (index, term, isleader)
+
+// ask a Raft for its current term, and whether it thinks it is leader
+rf.GetState() (term, isLeader)
+
+// each time a new entry is committed to the log, each Raft peer
+// should send an ApplyMsg to the service (or tester).
+type ApplyMsg
+```
+
+## 第一部分
+
+实现 Raft 领导者选举和心跳（没有日志条目的`AppendEntries` RPC）。
+
+第 2A 部分的目标是选出一个领导者，如果没有失败，领导者仍然是领导者，如果旧领导者失败或往/返旧领导者的数据包丢失，则由新领导者接管丢失。运行`go test -run 2A -race`来测试你的 2A 代码。
+
+测试
+
+```
+$ go test -run 2A -race
+Test (2A): initial election ...
+  ... Passed --   4.0  3   32    9170    0
+Test (2A): election after network failure ...
+  ... Passed --   6.1  3   70   13895    0
+PASS
+ok      raft    10.187s
+$
+```
+
