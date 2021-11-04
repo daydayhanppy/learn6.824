@@ -1,0 +1,6 @@
+# lab2A
+
+## 领导人选举
+
+按照论文中fig2定义raft结构体和RPC参数（RequestVoteArgs、RequestVoteReply 、AppendEntriesArgs、AppendEntriesReply）
+
