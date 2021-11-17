@@ -65,9 +65,9 @@
 
 为了实现加速策略，Follower在回复Leader的AE RPC时，需要携带3个额外的信息来实现。
 
-XTerm：这个是Follower中与Leader冲突的Log对应的任期号。在之前（7.1）有介绍Leader会在prevLogTerm中带上本地Log记录中，前一条Log的任期号。如果Follower在对应位置的任期号不匹配，它会拒绝Leader的AppendEntries消息，并将自己的任期号放在XTerm中。如果Follower在对应位置没有Log，那么这里会返回 -1。
+XTerm
 
-XIndex：这个是Follower中，对应任期号为XTerm的第一条Log条目的槽位号。
+XIndex
 
 XLen：如果Follower在对应位置没有Log，那么XTerm会返回-1，XLen表示空白的Log槽位数。
 
