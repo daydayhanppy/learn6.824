@@ -8,7 +8,7 @@ members = {
     # "yangchh": "yangchh1998",
     "ivan": "zjrenivan",
     "SimhaZF": "ZSimha",
-    "rookie0080": "rookie0080"
+    # "rookie0080": "rookie0080"
 }
 
 PUSH_KEY = os.getenv("PUSH_KEY")
